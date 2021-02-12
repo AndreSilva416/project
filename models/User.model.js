@@ -10,20 +10,20 @@ const UserSchema = new Schema({
 
   email: {
     type: String, 
-    required: true, 
+    required: true,
     unique: true
   },
 
    password: {
     type: String, 
     required: true,
-    minlength: 6,
-    maxlength: 12
+    // minlength: 6,
+    // maxlength: 12
    }, 
   
    fullName:{
      type: String,
-     required: true, 
+    //  required: true, 
      maxlength: 20
    },
 
@@ -35,7 +35,7 @@ const UserSchema = new Schema({
 
    birthday: {
      type: Date,
-     required: true,
+    //  required: true,
    } 
    
 });
