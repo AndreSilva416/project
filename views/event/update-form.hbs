@@ -1,0 +1,27 @@
+<h2>Create a new event</h2>
+<form method="POST" action="/event/{{events._id}}/edit">
+
+  <label>Title</label>
+  <input name="title" type="text"  placeholder="Enter the title of your event"  >
+
+  <label>Date</label>
+  <input name="date" type="date"  placeholder="Enter the date of your event"  >
+
+  <label>Location</label>
+  <input name="location" type="text"  placeholder="Enter location of your event"  >
+
+  <label>Description</label>
+  <input name="description" type="text"  placeholder="Enter a description about your event"  >
+
+  {{!-- <label>Category</label>
+  <input name="description" type="text"  placeholder="Enter a description about your event"  > --}}
+
+  <label>Age Restriction (optional)</label>
+  <input name="ageRestriction" type="number"  placeholder="Enter a minimum age"  >
+
+  {{!-- <label>Add photo (optional)</label>
+  <input name="photo" type="text"  placeholder="Uplod an event photo"  > --}}
+
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>

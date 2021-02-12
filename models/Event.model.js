@@ -4,15 +4,15 @@ const { Schema, model } = require("mongoose");
 const EventSchema = new Schema({
   // mongoose creates id by default
 
-  attendants: [{
-    type: mongoose.ObjectId,
-    ref: "User"
-  }],
+  // attendants: [{
+  //   type: mongoose.ObjectId,
+  //   ref: "User"
+  // }],
 
-  creator: {
-    type: mongoose.ObjectId,
-    ref: "User"
-  },
+  // creator: {
+  //   type: mongoose.ObjectId,
+  //   ref: "User"
+  // },
 
   title: {
     type: String,
@@ -21,7 +21,8 @@ const EventSchema = new Schema({
 
   category: {
     type: String, 
-    required: true, 
+    // required: true, 
+    enum: ['Music', 'Sports']
   },
 
    description: {

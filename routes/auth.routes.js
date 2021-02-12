@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require('bcrypt');
-const UserModel = require('../models/User.model')
+const UserModel = require('../models/User.model');
+const EventModel = require('../models/Event.model');
 
 
 /* GET signin page */
@@ -125,6 +126,62 @@ router.get('/logout', (req, res) => {
   req.session.destroy()
   res.redirect('/')
 })
+
+// CREATE EVENT
+// GET create event route
+
+router.get('/event/create', (req, res, next) => {
+  res.render('event/create-form.hbs')
+});
+
+// POST create event
+router.post('/event/create', (req, res, next) => {
+  const {title, date, location, description, ageRestriction, category} = req.body
+  let myNewEvent = {
+    title,
+    date,
+    location,
+    description,
+    ageRestriction,
+    category: category
+  }
+
+  EventModel.create(myNewEvent)
+          .then(()=>{
+            console.log(myNewEvent)
+              res.redirect('/event/listing')
+                
+          })
+          .catch((err)=>{
+              console.log(err, 'something went wrong creating the Event')
+          })
+
+      console.log(req.body)
+})
+
+// Route for events
+router.get('/event/listing', (req, res, next) => {
+  res.render('event/events-list.hbs')
+});
+
+// GET event by id
+router.get('/event/:id/edit', (req, res, next) => {
+  // grab the events id from the url
+  let id = req.params.id
+ 
+  EventModel.findById(id)
+      .then((events) => {
+          res.render('event/update-form.hbs', {events})
+      })
+      .catch(() => {
+          console.log('Something went wrong while getting an event')
+      })
+
+})
+
+// Edit event
+// Delete event
+
 
 
 module.exports = router;
