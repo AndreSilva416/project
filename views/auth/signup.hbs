@@ -1,7 +1,10 @@
 <h1>Sign Up</h1>
 <form action="/signup" method="POST">
   <label>Name</label>
-  <input name="name" type="text"  placeholder="Enter your name"  >
+  <input name="fullName" type="text"  placeholder="Enter your name"  >
+
+  <label>Username</label>
+  <input name="username" type="text"  placeholder="Enter your username"  >
 
   <label>Email</label>
   <input name="email" type="email"  placeholder="Enter your email"  >
@@ -9,10 +12,13 @@
   <label>Password</label>
   <input name="password" type="password"  placeholder="Enter your Password"  >
 
-  <label>Email</label>
-  <input name="email" type="email"  placeholder="Enter your email"  >
+  <label>Address</label>
+  <input name="address" type="text"  placeholder="Enter your address"  >
 
-  <button type="submit">Sign Up</button>
+  <label>Birthday</label>
+  <input name="birthday" type="date"  placeholder="Enter your birthday"  >
+  
+  <button type="submit" >Sign Up</button>
 </form>
 
 {{!-- Conditionally render the msg --}}

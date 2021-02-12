@@ -2,9 +2,18 @@ const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const EventSchema = new Schema({
- // _id: String,
- // creator: mongoose.id.UserSchema
-//attendants: [mongoose.id.UserSchema]
+  // mongoose creates id by default
+
+  // attendants: [{
+  //   type: mongoose.ObjectId,
+  //   ref: "User"
+  // }],
+
+  // creator: {
+  //   type: mongoose.ObjectId,
+  //   ref: "User"
+  // },
+
   title: {
     type: String,
     required: true
@@ -12,7 +21,8 @@ const EventSchema = new Schema({
 
   category: {
     type: String, 
-    required: true, 
+    // required: true, 
+    enum: ['Music', 'Sports']
   },
 
    description: {
