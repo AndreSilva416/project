@@ -1,1 +1,16 @@
 <h1>Profile</h1>
+
+<h1>List of your Event</h1>
+
+ {{#each events}}
+  
+      <div>{{this.title}}</div>
+      <div>{{this.description}}</div>
+      <div>{{this.date}}</div>
+      <div>{{this.location}}</div>
+      <div>{{this.category}}</div>
+      <div>{{this.ageRestriction}}</div>
+        <a href="/event/{{this._id}}/edit"><button>Edit</button></a>
+      <a href="/event/{{this._id}}/delete"><button>Delete</button></a>
+
+ {{/each}}
