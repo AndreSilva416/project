@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+require('./User.model');
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const EventSchema = new Schema({
@@ -9,10 +10,10 @@ const EventSchema = new Schema({
   //   ref: "User"
   // }],
 
-  // creator: {
-  //   type: mongoose.ObjectId,
-  //   ref: "User"
-  // },
+  creator: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
 
   title: {
     type: String,
@@ -22,7 +23,7 @@ const EventSchema = new Schema({
   category: {
     type: String, 
     // required: true, 
-    enum: ['Music', 'Sports']
+    enum: ['Music', 'Sports', 'Garage Sales', 'Meet-Ups', 'Arts & Crafts', 'Gaming', 'Food', 'Fashion', 'Seminars', 'Themed Parties', 'Others']
   },
 
    description: {

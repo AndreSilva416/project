@@ -115,7 +115,18 @@ const checkLoggedInUser = (req, res, next) => {
 
 router.get('/profile', checkLoggedInUser,  (req, res, next) => {
   let email = req.session.loggedInUser.email
-  res.render('profile.hbs', {email})
+  
+  // res.render('profile.hbs', {email})
+console.log(req.session.loggedInUser._id)
+  
+  EventModel.find({creator: req.session.loggedInUser._id})
+        .then((events) => {
+    // please create this page in your views folder
+        res.render('profile.hbs', {events})
+        })
+        .catch(() => {
+            console.log('Something went wrong while finding')
+        })
 })
 
 
@@ -143,12 +154,13 @@ router.post('/event/create', (req, res, next) => {
     location,
     description,
     ageRestriction,
-    category: category
+    category: category,
+    creator: req.session.loggedInUser._id
   }
 
   EventModel.create(myNewEvent)
           .then(()=>{
-            console.log(myNewEvent)
+            // console.log(myNewEvent)
               res.redirect('/event/listing')
                 
           })
@@ -161,7 +173,17 @@ router.post('/event/create', (req, res, next) => {
 
 // Route for events
 router.get('/event/listing', (req, res, next) => {
-  res.render('event/events-list.hbs')
+  EventModel.find()
+        .then((events) => {
+          events = events.map(function(singleEvent){
+            singleEvent.showButtons = req.session.loggedInUser._id == singleEvent.creator
+            return singleEvent;
+          })
+        res.render('event/events-list.hbs', {events})
+        })
+        .catch((err) => {
+            console.log(err, 'Something went wrong while finding')
+        })
 });
 
 // GET event by id
@@ -179,8 +201,21 @@ router.get('/event/:id/edit', (req, res, next) => {
 
 })
 
-// Edit event
+// // Edit event
 // Delete event
+
+router.get('/event/:id/delete', (req, res, next) => {
+  //handle delete requests 
+  let id = req.params.id
+
+  EventModel.findByIdAndDelete(id)
+      .then(() => {
+          res.redirect('/event/listing')
+      })
+      .catch(() => {
+          console.log('Delete failed!')
+      })
+})
 
 
 
