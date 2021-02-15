@@ -36,7 +36,17 @@ router.post('/event/create', (req, res, next) => {
 
 // Route for events
 router.get('/event/listing', (req, res, next) => {
-  EventModel.find()
+  console.log(req.query)
+  let searchQuery = {};
+  if (req.query.category){
+    searchQuery.category = req.query.category;
+  }
+  if (req.query.date){
+    searchQuery.date = req.query.date;
+  }
+  console.log(searchQuery);
+  
+  EventModel.find(searchQuery)
         .then((events) => {
           events = events.map(function(singleEvent){
             singleEvent.showButtons = req.session.loggedInUser._id == singleEvent.creator
