@@ -180,6 +180,22 @@ router.get('/event/:id/edit', (req, res, next) => {
 })
 
 // Edit event
+
+// POST route to update 
+router.post("/event/:id/edit", (req, res, next) => {
+  //Update/edit the event
+  const { id } = req.params 
+
+  // findByIdAndUpdate will use the information passed from the request body to update the drone
+  EventModel.findByIdAndUpdate(id, { $set: req.body })
+    .then((event) => {
+      console.log(`Event ${event.name} updated`);
+      res.redirect("/event/events-list.hbs");
+    })
+    .catch((err) => console.log(err));
+});
+
+
 // Delete event
 
 
