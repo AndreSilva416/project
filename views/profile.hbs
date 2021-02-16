@@ -1,5 +1,17 @@
 <h1>Profile</h1>
 
+<div class="profile-container">
+
+  <div class="bio-container">
+    <h3>Name: {{user.username}}</h3>
+  </div>
+
+  <img class="profile-pic" src="{{user.profilePic}}" alt="">
+
+</div>
+
+<button><a href="/profile/edit">EDIT PROFILE</a></button>
+
 <h1>List of your Event</h1>
 
  {{#each events}}

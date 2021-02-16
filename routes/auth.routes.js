@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcrypt = require('bcrypt');
 const UserModel = require('../models/User.model');
 const EventModel = require('../models/Event.model');
-
+const uploader = require('../config/cloudinary.js');
 
 /* GET signin page */
 router.get("/signin", (req, res, next) => {
@@ -115,6 +115,25 @@ const checkLoggedInUser = (req, res, next) => {
 
 router.get('/profile', checkLoggedInUser,  (req, res, next) => {
   let email = req.session.loggedInUser.email
+
+  router.get('/', (req, res, next) => {
+    User.findById(req.session.user._id)
+    .then(user => {
+      console.log(user)
+      res.render('/profile', { user });
+    }) 
+  });
+  
+  router.get("/profile/edit", (req, res, next) => {
+    res.render("/profile-edit")
+  })
+
+  router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
+    User.findByIdAndUpdate(req.session.user._id, {profilePic: req.file.path})
+    .then(() => {
+      res.redirect("/profile")
+    })
+  })
   
   // res.render('profile.hbs', {email})
 console.log(req.session.loggedInUser._id)
@@ -130,93 +149,13 @@ console.log(req.session.loggedInUser._id)
 })
 
 
-//router.get Log Out
 
+
+//router.get Log Out
 
 router.get('/logout', (req, res) => {
   req.session.destroy()
   res.redirect('/')
 })
-
-// CREATE EVENT
-// GET create event route
-
-router.get('/event/create', (req, res, next) => {
-  res.render('event/create-form.hbs')
-});
-
-// POST create event
-router.post('/event/create', (req, res, next) => {
-  const {title, date, location, description, ageRestriction, category} = req.body
-  let myNewEvent = {
-    title,
-    date,
-    location,
-    description,
-    ageRestriction,
-    category: category,
-    creator: req.session.loggedInUser._id
-  }
-
-  EventModel.create(myNewEvent)
-          .then(()=>{
-            // console.log(myNewEvent)
-              res.redirect('/event/listing')
-                
-          })
-          .catch((err)=>{
-              console.log(err, 'something went wrong creating the Event')
-          })
-
-      console.log(req.body)
-})
-
-// Route for events
-router.get('/event/listing', (req, res, next) => {
-  EventModel.find()
-        .then((events) => {
-          events = events.map(function(singleEvent){
-            singleEvent.showButtons = req.session.loggedInUser._id == singleEvent.creator
-            return singleEvent;
-          })
-        res.render('event/events-list.hbs', {events})
-        })
-        .catch((err) => {
-            console.log(err, 'Something went wrong while finding')
-        })
-});
-
-// GET event by id
-router.get('/event/:id/edit', (req, res, next) => {
-  // grab the events id from the url
-  let id = req.params.id
- 
-  EventModel.findById(id)
-      .then((events) => {
-          res.render('event/update-form.hbs', {events})
-      })
-      .catch(() => {
-          console.log('Something went wrong while getting an event')
-      })
-
-})
-
-// // Edit event
-// Delete event
-
-router.get('/event/:id/delete', (req, res, next) => {
-  //handle delete requests 
-  let id = req.params.id
-
-  EventModel.findByIdAndDelete(id)
-      .then(() => {
-          res.redirect('/event/listing')
-      })
-      .catch(() => {
-          console.log('Delete failed!')
-      })
-})
-
-
 
 module.exports = router;

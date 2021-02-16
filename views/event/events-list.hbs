@@ -1,4 +1,38 @@
 <h1>List of Event</h1>
+<form action="/event/listing" method= "GET">
+
+<input name="date" type="date" id="myInput" placeholder="Filter by date" title="Type in a name">
+ 
+ <label>Category</label>
+  <select name="category" type="text"  placeholder="Filter by category">
+    <option></option>
+    <option>Sports</option>
+    <option>Music</option>
+    <option>Garage Sales</option>
+    <option>Meet-Ups</option>
+    <option>Arts and Crafts</option>
+    <option>Gaming</option>
+    <option>Food</option>
+    <option>Fashion</option>
+    <option>Seminars</option>
+    <option>Themed Parties</option>
+    <option>Others</option>
+  </select>
+
+<label>Location</label>
+  <select name="category" type="text"  placeholder="Filter by category">
+    <option></option>
+    <option>Berlin</option>
+    <option>Porto</option>
+    <option>Lisbon</option>
+    <option>Amsterdam</option>
+    <option>Madrid</option>
+    <option>Paris</option>
+  </select>
+
+  <button type="submit">Search</button></a>
+
+</form>
 
  {{#each events}}
   

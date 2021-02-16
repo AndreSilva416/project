@@ -1,11 +1,67 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  height: 100%;
+    margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+.bg-black{
+  background: black;
+  height: 100%;
+  padding: 10em;
+
+}
+
+.content {
+display:flex;
+justify-content: center;
+flex-direction: column;
+height: 100%;
+}
 
 a {
   color: #00b7ff; }
 
 h1 {
-  color: 15px; }
+  text-align: center;
+  color: white; 
+  font-size: 40px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 300;
+  color: white; 
+  size: 12px;
+}
+
+  .bg-dark{
+    background: black;
+  }
+
+  .buttons{
+    display:flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.landing-btn{
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 30px 80px;
+    margin: 10px;
+    cursor: pointer;
+    margin-top: 50px;
+    background-color:white;
+}
+
+.landing-btn:hover{
+    background-color: #eb5758;
+}
+
+footer {
+  text-align: center;
+  padding:20px;
+}
 
 /*# sourceMappingURL=style.css.map */

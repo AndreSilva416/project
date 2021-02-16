@@ -35,6 +35,7 @@ const EventSchema = new Schema({
    location:{
      type: String,
      required: true, 
+     enum: ['Berlin', 'Porto', 'Lisbon', 'Amsterdam', 'Paris', 'Madrid']
    },
 
    date: {

@@ -36,7 +36,13 @@ const UserSchema = new Schema({
    birthday: {
      type: Date,
     //  required: true,
-   } 
+   },
+   
+   profilePic: {
+     type: String,
+     default: "https://i.pinimg.com/originals/b7/21/26/b721265eb826b20e6f91d6643b95c122.jpg"
+   }
+   
    
 });
 
