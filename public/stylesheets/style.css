@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  margin: 0px;
   font-family: 'Ubuntu', sans-serif;}
 
 a {
@@ -7,5 +7,9 @@ a {
 
 h1 {
   color: 15px; }
+
+  .bg-dark{
+    background: black;
+  }
 
 /*# sourceMappingURL=style.css.map */
