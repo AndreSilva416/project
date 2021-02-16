@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcrypt = require('bcrypt');
 const UserModel = require('../models/User.model');
 const EventModel = require('../models/Event.model');
-
+const uploader = require('../config/cloudinary.js');
 
 /* GET signin page */
 router.get("/signin", (req, res, next) => {
@@ -115,6 +115,25 @@ const checkLoggedInUser = (req, res, next) => {
 
 router.get('/profile', checkLoggedInUser,  (req, res, next) => {
   let email = req.session.loggedInUser.email
+
+  router.get('/', (req, res, next) => {
+    User.findById(req.session.user._id)
+    .then(user => {
+      console.log(user)
+      res.render('/profile', { user });
+    }) 
+  });
+  
+  router.get("/profile/edit", (req, res, next) => {
+    res.render("/profile-edit")
+  })
+
+  router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
+    User.findByIdAndUpdate(req.session.user._id, {profilePic: req.file.path})
+    .then(() => {
+      res.redirect("/profile")
+    })
+  })
   
   // res.render('profile.hbs', {email})
 console.log(req.session.loggedInUser._id)
@@ -128,6 +147,8 @@ console.log(req.session.loggedInUser._id)
             console.log('Something went wrong while finding')
         })
 })
+
+
 
 
 //router.get Log Out
