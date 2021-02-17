@@ -5,7 +5,7 @@ const UserSchema = new Schema({
  // _id: String,
   username: {
     type: String,
-    unique: true
+    // unique: true
   },
 
   email: {
@@ -18,7 +18,7 @@ const UserSchema = new Schema({
     type: String, 
     required: true,
     // minlength: 6,
-    maxlength: 12
+    // maxlength: 12
    }, 
   
    fullName:{
