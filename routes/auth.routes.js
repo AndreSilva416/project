@@ -116,24 +116,7 @@ const checkLoggedInUser = (req, res, next) => {
 router.get('/profile', checkLoggedInUser,  (req, res, next) => {
   let email = req.session.loggedInUser.email
 
-  router.get('/', (req, res, next) => {
-    User.findById(req.session.user._id)
-    .then(user => {
-      console.log(user)
-      res.render('/profile', { user });
-    }) 
-  });
-  
-  router.get("/profile/edit", (req, res, next) => {
-    res.render("/profile-edit")
-  })
 
-  router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
-    User.findByIdAndUpdate(req.session.user._id, {profilePic: req.file.path})
-    .then(() => {
-      res.redirect("/profile")
-    })
-  })
   
   // res.render('profile.hbs', {email})
 console.log(req.session.loggedInUser._id)
@@ -141,11 +124,26 @@ console.log(req.session.loggedInUser._id)
   EventModel.find({creator: req.session.loggedInUser._id})
         .then((events) => {
     // please create this page in your views folder
-        res.render('profile.hbs', {events})
+        UserModel.findById(req.session.loggedInUser._id)
+        .then((user)=> {
+          console.log(user, events)
+          res.render('profile', {user, events});
+        })
         })
         .catch(() => {
             console.log('Something went wrong while finding')
         })
+})
+
+router.get("/profile/edit", (req, res, next) => {
+  res.render("profile-edit")
+})
+
+router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
+  UserModel.findByIdAndUpdate(req.session.loggedInUser._id, {profilePic: req.file.path})
+  .then(() => {
+    res.redirect("/profile")
+  })
 })
 
 
