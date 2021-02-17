@@ -69,7 +69,7 @@ h2 {
   margin-top: 0;
 }
 
-hl{
+.event hl{
   width: 100%; 
   margin: auto;
   border-top: solid black 10px;
