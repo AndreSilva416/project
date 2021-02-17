@@ -1,4 +1,4 @@
-<h2>Create a new event</h2>
+<div class="bg-black"><h2>Create a new event</h2>
 <form method="POST" action="/event/create">
 
   <label>Title</label>
@@ -8,13 +8,23 @@
   <input name="date" type="date"  placeholder="Enter the date of your event"  >
 
   <label>Location</label>
-  <input name="location" type="text"  placeholder="Enter location of your event"  >
+  <select name="location" type="text"  placeholder="Enter location of your event"  >
+    <option></option>
+    <option>Berlin</option>
+    <option>Porto</option>
+    <option>Paris</option>
+    <option>Amsterdam</option>
+    <option>Lisbon</option>
+    <option>Madrid</option>
+  </select>
 
   <label>Description</label>
   <input name="description" type="text"  placeholder="Enter a description about your event"  >
+  
 
   <label>Category</label>
   <select name="category" type="text"  placeholder="Enter a description about your event">
+    <option></option>
     <option>Sports</option>
     <option>Music</option>
     <option>Garage Sales</option>
@@ -37,3 +47,4 @@
 
   <button type="submit" class="btn btn-primary">Post your event</button>
 </form>
+</div>

@@ -22,12 +22,16 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="/">EventLis</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{#unless loggedIn}}
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/signup">Signup</a>
         </li>
+        {{/unless}}
+        {{#unless loggedIn}}
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/signin">Signin</a>
         </li>
+        {{/unless}}
           <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/event/create">Post event</a>
         </li>
