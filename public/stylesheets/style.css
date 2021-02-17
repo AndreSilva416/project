@@ -1,13 +1,41 @@
 body {
   height: 100%;
     margin: 0;
-  font-family: 'Ubuntu', sans-serif;
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'Chivo', sans-serif;
+
 }
 .bg-black{
   background: black;
   height: 100%;
   padding: 10em;
 
+}
+
+.bg-green{
+ height: 100%;
+  background: #c9fbd2;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.events-content{
+ display:flex;
+justify-content: center;
+
+  height: 100%;
+  background: #c9fbd2;
+  padding: 30px;
+  text-align: center;
+}
+
+.bg-green h1{
+  color: black;
+  text-align: left;
+}
+
+.bg-dark {
+  background-color:black!important;
 }
 
 .content {
@@ -23,7 +51,9 @@ a {
 h1 {
   text-align: center;
   color: white; 
-  font-size: 40px;
+  font-size: 80px;
+  padding: 30px;
+  font-weight: 900;
 }
 
 h2 {
@@ -33,11 +63,32 @@ h2 {
   size: 12px;
 }
 
-  .bg-dark{
-    background: black;
-  }
+.small-btn{
+  background-color: black;
+  color: white;
+  margin-top: 0;
+}
 
-  .buttons{
+hl{
+  width: 100%; 
+  margin: auto;
+  border-top: solid black 10px;
+  
+}
+
+.event {
+  position: relative;
+  padding: 20px;
+  text-align: left;
+}
+
+.event-title{
+  padding-top: 5px;
+  font-weight: bold;
+  text-transform:uppercase;
+}
+
+.buttons{
     display:flex;
     justify-content: center;
     margin-top: 0;
@@ -57,6 +108,11 @@ h2 {
 
 .landing-btn:hover{
     background-color: #eb5758;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
 }
 
 footer {

@@ -1,12 +1,25 @@
 const router = require("express").Router();
 const EventModel = require('../models/Event.model');
 
-// CREATE EVENT
+//Middleware to protect routes
+const checkLoggedInUser = (req, res, next) => {
+  if (req.session.loggedInUser) {
+      // router.locals.loggedIn = true;
+      next()
+  }
+  else {
+      res.redirect('/signin')
+  }
+}
+
+// CREATE EVENT (protected route)
 // GET create event route
 
-router.get('/event/create', (req, res, next) => {
-  res.render('event/create-form.hbs')
-});
+router.get('/event/create', checkLoggedInUser,  (req, res, next) => {
+  let email = req.session.loggedInUser.email
+  res.render('event/create-form.hbs', {email})
+})
+
 
 // POST create event
 router.post('/event/create', (req, res, next) => {
@@ -36,6 +49,7 @@ router.post('/event/create', (req, res, next) => {
 
 // Route for events
 router.get('/event/listing', (req, res, next) => {
+  console.log(req.query)
   let searchQuery = {};
   if (req.query.category){
     searchQuery.category = req.query.category;
