@@ -42,6 +42,18 @@ app.use(session({
     })
 }));
 
+// middleware to check if user is logged in
+app.use((req, res, next) => {
+   if (req.session.loggedInUser) {
+    app.locals.loggedIn = true;
+    next()
+}
+else {
+  app.locals.loggedIn = false;
+  next()
+}
+}) 
+
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);

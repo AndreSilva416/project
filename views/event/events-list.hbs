@@ -1,51 +1,63 @@
-<h1>List of Event</h1>
-<form action="/event/listing" method= "GET">
+<div class = "bg-green">
 
-<input name="date" type="date" id="myInput" placeholder="Filter by date" title="Type in a name">
- 
- <label>Category</label>
-  <select name="category" type="text"  placeholder="Filter by category">
-    <option></option>
-    <option>Sports</option>
-    <option>Music</option>
-    <option>Garage Sales</option>
-    <option>Meet-Ups</option>
-    <option>Arts and Crafts</option>
-    <option>Gaming</option>
-    <option>Food</option>
-    <option>Fashion</option>
-    <option>Seminars</option>
-    <option>Themed Parties</option>
-    <option>Others</option>
-  </select>
+  <form action="/event/listing" method= "GET">
 
-<label>Location</label>
-  <select name="category" type="text"  placeholder="Filter by category">
-    <option></option>
-    <option>Berlin</option>
-    <option>Porto</option>
-    <option>Lisbon</option>
-    <option>Amsterdam</option>
-    <option>Madrid</option>
-    <option>Paris</option>
-  </select>
-
-  <button type="submit">Search</button></a>
-
-</form>
-
- {{#each events}}
+  <input name="date" type="date" id="myInput" placeholder="Filter by date" title="Type in a name">
   
-      <div>{{this.title}}</div>
-      <div>{{this.description}}</div>
-      <div>{{this.date}}</div>
-      <div>{{this.location}}</div>
-      <div>{{this.category}}</div>
-      <div>{{this.ageRestriction}}</div>
-    {{#if this.showButtons}}
-      <a href="/event/{{this._id}}/edit"><button>Edit</button></a>
-      <a href="/event/{{this._id}}/delete"><button>Delete</button></a>
-    {{/if}}
- {{/each}}
+  <label>Category</label>
+    <select name="category" type="text"  placeholder="Filter by category">
+      <option></option>
+      <option>Sports</option>
+      <option>Music</option>
+      <option>Garage Sales</option>
+      <option>Meet-Ups</option>
+      <option>Arts and Crafts</option>
+      <option>Gaming</option>
+      <option>Food</option>
+      <option>Fashion</option>
+      <option>Seminars</option>
+      <option>Themed Parties</option>
+      <option>Others</option>
+    </select>
+
+  <label>Location</label>
+    <select name="category" type="text"  placeholder="Filter by category">
+      <option></option>
+      <option>Berlin</option>
+      <option>Porto</option>
+      <option>Lisbon</option>
+      <option>Amsterdam</option>
+      <option>Madrid</option>
+      <option>Paris</option>
+    </select>
+
+    <button class="small-btn" type="submit">Search</button></a>
+
+  </form>
+    <div class="events-content">
+      <h1>Looking for <br>an Event?</h1>
+
+
+
+      <div class = "event">
+      {{#each events}}
+            <div class ="event-title">{{this.title}}</div>
+            <div>{{this.description}}</div>
+            <div class ="event-title">When?</div>
+            <div>{{this.date}}</div>
+            <div class ="event-title">When?</div>
+            <div>{{this.location}}</div>
+            <div>{{this.category}}</div>
+            <div>Age Restriction: {{this.ageRestriction}}</div>
+          {{#if this.showButtons}}
+            <a href="/event/{{this._id}}/edit"><button class="small-btn">Edit</button></a>
+            <a href="/event/{{this._id}}/delete"><button class="small-btn">Delete</button></a>
+          {{/if}}
+          <hl></hl>
+      {{/each}}
+      </div>
+    </div>
+  
+ </div>
     
 
