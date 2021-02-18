@@ -1,0 +1,15 @@
+<h1>Details</h1>
+
+ <div class ="event-title">{{details.title}}</div>
+            <div>{{details.description}}</div>
+            <div class ="event-title">When?</div>
+            <div>{{details.date}}</div>
+            <div class ="event-title">When?</div>
+            <div>{{details.location}}</div>
+            <div>{{details.category}}</div>
+            <div>Age Restriction: {{details.ageRestriction}}</div>
+
+<a href="/join/{{details._id}}"><button class="small-btn">Join</button></a>
+{{#if joinedEvent}}
+<h3>Success</h3>
+{{/if}}

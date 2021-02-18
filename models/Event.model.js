@@ -5,10 +5,10 @@ require('./User.model');
 const EventSchema = new Schema({
   // mongoose creates id by default
 
-  // attendants: [{
-  //   type: mongoose.ObjectId,
-  //   ref: "User"
-  // }],
+  attendants: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
 
   creator: {
     type: Schema.Types.ObjectId,
