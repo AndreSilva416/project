@@ -147,6 +147,16 @@ router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
   })
 })
 
+// router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
+//   EventModel.findById(req.session.loggedInUser._id, {eventPic: req.file.path})
+//   .then(() => {
+//     res.redirect("/details/")
+//   })
+// })
+
+
+
+
 //router.get Log Out
 
 router.get('/logout', (req, res) => {
