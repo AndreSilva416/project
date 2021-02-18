@@ -25,3 +25,8 @@
 
   <button type="submit" class="btn btn-primary">Update</button>
 </form>
+
+<form action="/updatePic/{{events._id}}" method="POST" enctype="multipart/form-data">
+  <input type="file" name="imageUrl" accept="image/png, image/jpg">
+  <button type="submit">Submit</button> 
+  </form> 

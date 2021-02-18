@@ -147,12 +147,12 @@ router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
   })
 })
 
-// router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
-//   EventModel.findById(req.session.loggedInUser._id, {eventPic: req.file.path})
-//   .then(() => {
-//     res.redirect("/details/")
-//   })
-// })
+router.post("/updatePic/:eventId", uploader.single("imageUrl"), (req, res, next) => {
+  EventModel.findByIdAndUpdate(req.params.eventId, {eventPic: req.file.path})
+  .then(() => {
+    res.redirect(`/event/${req.params.eventId}/details`)
+  })
+})
 
 
 
