@@ -128,7 +128,7 @@ console.log(req.session.loggedInUser._id)
         UserModel.findById(req.session.loggedInUser._id)
         .then((user)=> {
           console.log(user, events)
-          res.render('profile', {user, events, });
+          res.render('profile', {user, events});
         })
         })
         .catch(() => {
@@ -146,6 +146,13 @@ router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
     res.redirect("/profile")
   })
 })
+
+// router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
+//   EventModel.findById(req.session.loggedInUser._id, {eventPic: req.file.path})
+//   .then(() => {
+//     res.redirect("/details/")
+//   })
+// })
 
 
 

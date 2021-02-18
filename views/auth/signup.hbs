@@ -1,27 +1,44 @@
-<h1>Sign Up</h1>
-<form action="/signup" method="POST">
-  <label>Name</label>
-  <input name="fullName" type="text"  placeholder="Enter your name"  >
+<div class="bg-black"><h1>Sign Up</h1>
 
-  <label>Username</label>
-  <input name="username" type="text"  placeholder="Enter your username"  >
-
-  <label>Email</label>
-  <input name="email" type="email"  placeholder="Enter your email"  >
-
-  <label>Password</label>
-  <input name="password" type="password"  placeholder="Enter your Password"  >
-
-  <label>Address</label>
-  <input name="address" type="text"  placeholder="Enter your address"  >
-
-  <label>Birthday</label>
-  <input name="birthday" type="date"  placeholder="Enter your birthday"  >
+<form class="row g-3" action="/signup" method="POST">
   
-  <button type="submit" >Sign Up</button>
+   <div class="col-md-6">
+    <label  class="form-label">Name</label>
+    <input name="fullName" type="text"  placeholder="Enter your name"  class="form-control" >
+  </div>
+
+   <div class="col-md-6">
+    <label  class="form-label">Username</label>
+    <input name="username" type="text"  placeholder="Enter your username"  class="form-control" >
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input name="email" type="email" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Password</label>
+    <input name="password" type="password"  placeholder="Enter your Password" class="form-control" id="inputPassword4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input name="address" type="text"  placeholder="Enter your address" class="form-control" id="inputAddress" >
+  </div>
+  
+  <div class="col-md-6">
+    <label class="form-label">Birthday</label>
+    <input name="birthday" type="date"  placeholder="Enter your birthday" class="form-control" >
+  </div>
+  
+  <div class="col-12">
+    <button type="submit" class="auth-btn">Sign Up</button>
+  </div>
 </form>
 
 {{!-- Conditionally render the msg --}}
 {{#if msg}}
  <div class="error">{{msg}}</div>
 {{/if}}
+
+</div>

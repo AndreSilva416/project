@@ -107,6 +107,20 @@ h2 {
     background-color:white;
 }
 
+.auth-btn{
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 50px;
+  background-color:#c9fbd2;
+  padding: 5px 20px;
+}
+
+.auth-btn:hover{
+  background-color: white;
+}
+
 .landing-btn:hover{
     background-color: #eb5758;
 }
