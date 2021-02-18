@@ -128,7 +128,7 @@ console.log(req.session.loggedInUser._id)
         UserModel.findById(req.session.loggedInUser._id)
         .then((user)=> {
           console.log(user, events)
-          res.render('profile', {user, events});
+          res.render('profile', {user, events, });
         })
         })
         .catch(() => {

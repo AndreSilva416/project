@@ -1,15 +1,25 @@
-<div class="bg-black"><h2>Create a new event</h2>
+<div class="bg-black"><h1>Create a new event</h1>
+
+
 <form method="POST" action="/event/create">
 
-  <label>Title</label>
-  <input name="title" type="text"  placeholder="Enter the title of your event"  >
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Title</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter the title of your event">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+<div>
+  <label for="exampleFormControlInput1" class="form-label">Date</label>
+  <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Enter the date of your event"  >
+</div>
 
-  <label>Date</label>
-  <input name="date" type="date"  placeholder="Enter the date of your event"  >
-
+<div>
   <label>Location</label>
-  <select name="location" type="text"  placeholder="Enter location of your event"  >
-    <option></option>
+  <select name="location" type="text" class="form-select" placeholder="Enter location of your event"  >
+    <option>Select city</option>
     <option>Berlin</option>
     <option>Porto</option>
     <option>Paris</option>
@@ -17,6 +27,7 @@
     <option>Lisbon</option>
     <option>Madrid</option>
   </select>
+</div>
 
   <label>Description</label>
   <input name="description" type="text"  placeholder="Enter a description about your event"  >
@@ -40,11 +51,17 @@
 
   <label>Age Restriction (optional)</label>
   <input name="ageRestriction" type="number"  placeholder="Enter a minimum age"  >
+ 
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+  <input type="file" name="imageUrl" accept="image/png, image/jpg">
+  <button type="submit">Submit</button>  
+</form>
 
-  {{!-- <label>Add photo (optional)</label>
+  {{!-- {{<label>Add photo (optional)</label>
   <input name="photo" type="text"  placeholder="Uplod an event photo"  > --}}
 
 
   <button type="submit" class="btn btn-primary">Post your event</button>
 </form>
 </div>
+

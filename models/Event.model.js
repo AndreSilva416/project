@@ -43,9 +43,9 @@ const EventSchema = new Schema({
      required: true, 
    },
 
-   photo: {
+   eventPic: {
      type: String,
-   } ,
+   },
 
    ageRestriction: Number
 });
