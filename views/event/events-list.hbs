@@ -39,13 +39,14 @@
 
 
 
-      <div class = "event">
-      {{#each events}}     
-            <div class ="event-title">{{this.title}}</div>
-            <div>{{this.description}}</div>
-            <div class ="event-title">When?</div>
-            <div>{{this.date}}</div>
-            <div class ="event-title">When?</div>
+<div class = "event">
+      {{#each events}}  
+    <div class="card" style="width: 18rem;">
+      <img src="/images/priscilla-du-preez-nF8xhLMmg0c-unsplash.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <div class ="event-title">{{this.date}}</div>
             <div>{{this.location}}</div>
             <div>{{this.category}}</div>
             <div>Age Restriction: {{this.ageRestriction}}</div>
@@ -54,11 +55,11 @@
             <a href="/event/{{this._id}}/delete"><button class="small-btn">Delete</button></a>
           {{/if}}
           <a href="/event/{{this._id}}/details"><button class="small-btn">Details</button></a>
-          <hl></hl>
-      {{/each}}
       </div>
-    </div>
-  
- </div>
+  </div>   
+          
+      {{/each}}
+</div>
+</div>
     
 

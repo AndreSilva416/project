@@ -1,24 +1,24 @@
 <div class="bg-black"><h1>Create a new event</h1>
 
 
-<form method="POST" action="/event/create">
+<form class="row g-3" method="POST" action="/event/create">
 
-<div class="mb-3">
+<div class ="col-md-6">
   <label for="exampleFormControlInput1" class="form-label">Title</label>
-  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter the title of your event">
+  <input name ="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter the title of your event">
 </div>
-<div class="mb-3">
+<div class="col-md-6">
   <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 </div>
-<div class="mb-3">
+<div class="col-md-6">
   <label for="exampleFormControlInput1" class="form-label">Date</label>
   <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Enter the date of your event">
 </div>
 
-
+<div class="col-md-6">
  <label for="exampleFormControlInput1" class="form-label">Location</label>
-<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+<select name="location" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
   <option selected>Select City</option>
   <option>Berlin</option>
     <option>Porto</option>
@@ -27,15 +27,17 @@
     <option>Lisbon</option>
     <option>Madrid</option>
 </select>
+</div>
+
 
  <label for="exampleFormControlInput1" class="form-label">Category</label>
-<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+<select name="category" class="form-select form-select-lg mb-6" aria-label=".form-select-lg example">
   <option selected>Select Category</option>
     <option>Sports</option>
     <option>Music</option>
     <option>Garage Sales</option>
     <option>Meet-Ups</option>
-    <option>Arts and Crafts</option>
+    <option>Arts and Crafts</option>s
     <option>Gaming</option>
     <option>Food</option>
     <option>Fashion</option>
@@ -44,15 +46,13 @@
     <option>Others</option>
 </select>
 
-
-  <label>Age Restriction (optional)</label>
+   <label>Age Restriction (optional)</label>
   <input name="ageRestriction" type="number"  placeholder="Enter a minimum age"  >
 
  <label>Add photo (optional)</label>
   <input name="photo" type="text"  placeholder="Uplod an event photo"  > 
 
-
-  <button type="submit" class="btn btn-primary">Post your event</button>
+  <button type="submit" class="auth-btn">Post your event</button>
 </form>
 
 

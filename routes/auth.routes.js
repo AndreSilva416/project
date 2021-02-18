@@ -147,9 +147,6 @@ router.post("/upload", uploader.single("imageUrl"), (req, res, next) => {
   })
 })
 
-
-
-
 //router.get Log Out
 
 router.get('/logout', (req, res) => {
