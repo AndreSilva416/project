@@ -57,10 +57,10 @@ router.post("/signup", (req, res, next) => {
    let hash = bcrypt.hashSync(password, salt);
    UserModel.create({fullName, email, password: hash, address, username, birthday})
       .then(() => {
-          res.redirect('/')
+        req.session.loggedInUser = true;
+          res.redirect('/profile')
       })
       .catch((err) => {
-        console.log(err)
           next(err)
       })
 });
