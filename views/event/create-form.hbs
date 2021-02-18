@@ -11,31 +11,26 @@
   <label for="exampleFormControlTextarea1" class="form-label">Description</label>
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 </div>
-<div>
+<div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Date</label>
-  <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Enter the date of your event"  >
+  <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Enter the date of your event">
 </div>
 
-<div>
-  <label>Location</label>
-  <select name="location" type="text" class="form-select" placeholder="Enter location of your event"  >
-    <option>Select city</option>
-    <option>Berlin</option>
+
+ <label for="exampleFormControlInput1" class="form-label">Location</label>
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>Select City</option>
+  <option>Berlin</option>
     <option>Porto</option>
     <option>Paris</option>
     <option>Amsterdam</option>
     <option>Lisbon</option>
     <option>Madrid</option>
-  </select>
-</div>
+</select>
 
-  <label>Description</label>
-  <input name="description" type="text"  placeholder="Enter a description about your event"  >
-  
-
-  <label>Category</label>
-  <select name="category" type="text"  placeholder="Enter a description about your event">
-    <option></option>
+ <label for="exampleFormControlInput1" class="form-label">Category</label>
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>Select Category</option>
     <option>Sports</option>
     <option>Music</option>
     <option>Garage Sales</option>
@@ -47,16 +42,19 @@
     <option>Seminars</option>
     <option>Themed Parties</option>
     <option>Others</option>
-  </select>
+</select>
+
 
   <label>Age Restriction (optional)</label>
   <input name="ageRestriction" type="number"  placeholder="Enter a minimum age"  >
 
-  {{!-- <label>Add photo (optional)</label>
-  <input name="photo" type="text"  placeholder="Uplod an event photo"  > --}}
+ <label>Add photo (optional)</label>
+  <input name="photo" type="text"  placeholder="Uplod an event photo"  > 
 
 
   <button type="submit" class="btn btn-primary">Post your event</button>
 </form>
+
+
 </div>
 

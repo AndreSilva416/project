@@ -40,7 +40,7 @@
 
 
       <div class = "event">
-      {{#each events}}
+      {{#each events}}     
             <div class ="event-title">{{this.title}}</div>
             <div>{{this.description}}</div>
             <div class ="event-title">When?</div>
@@ -53,6 +53,7 @@
             <a href="/event/{{this._id}}/edit"><button class="small-btn">Edit</button></a>
             <a href="/event/{{this._id}}/delete"><button class="small-btn">Delete</button></a>
           {{/if}}
+          <a href="/event/{{this._id}}/details"><button class="small-btn">Details</button></a>
           <hl></hl>
       {{/each}}
       </div>

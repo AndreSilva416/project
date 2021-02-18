@@ -103,6 +103,32 @@ router.get('/event/:id/delete', (req, res, next) => {
       })
 })
 
+router.get('/event/:id/details', (req, res, next) => {
+  //handle delete requests 
+  let id = req.params.id
+
+  EventModel.findById(id)
+      .then((details) => {
+          res.render('event/details.hbs', {details})
+      })
+      .catch(() => {
+          console.log('Delete failed!')
+      })
+})
+
+router.get('/join/:eventId', (req, res, next) => {
+  //handle delete requests 
+  let eventId = req.params.eventId
+  let userId = req.session.loggedInUser._id
+  
+ EventModel.findByIdAndUpdate(eventId, {$push: {attendants:userId}})
+      .then((details) => {
+        res.render('event/details.hbs', {details, joinedEvent: true})
+      })
+      .catch((err) => {
+          console.log('Failed to join event!', err)
+      })
+})
 
 
 module.exports = router;
