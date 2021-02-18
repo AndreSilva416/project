@@ -23,7 +23,7 @@ const EventSchema = new Schema({
   category: {
     type: String, 
     // required: true, 
-    enum: ['Music', 'Sports', 'Garage Sales', 'Meet-Ups', 'Arts & Crafts', 'Gaming', 'Food', 'Fashion', 'Seminars', 'Themed Parties', 'Others']
+    enum: ['Select Category','Music', 'Sports', 'Garage Sales', 'Meet-Ups', 'Arts & Crafts', 'Gaming', 'Food', 'Fashion', 'Seminars', 'Themed Parties', 'Others']
   },
 
    description: {
@@ -35,7 +35,7 @@ const EventSchema = new Schema({
    location:{
      type: String,
      required: true, 
-     enum: ['Berlin', 'Porto', 'Lisbon', 'Amsterdam', 'Paris', 'Madrid']
+     enum: ['Select City', 'Berlin', 'Porto', 'Lisbon', 'Amsterdam', 'Paris', 'Madrid']
    },
 
    date: {

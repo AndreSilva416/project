@@ -16,22 +16,18 @@
   <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Enter the date of your event">
 </div>
 
-<div class="col-md-6">
- <label for="exampleFormControlInput1" class="form-label">Location</label>
-<select name="location" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-  <option selected>Select City</option>
-  <option>Berlin</option>
-    <option>Porto</option>
-    <option>Paris</option>
-    <option>Amsterdam</option>
-    <option>Lisbon</option>
-    <option>Madrid</option>
-</select>
-</div>
+  <select name="location" class="form-select">
+    <option selected>Select City</option>
+    <option>Berlin</option>
+      <option>Porto</option>
+      <option>Paris</option>
+      <option>Amsterdam</option>
+      <option>Lisbon</option>
+      <option>Madrid</option>
+  </select>
 
 
- <label for="exampleFormControlInput1" class="form-label">Category</label>
-<select name="category" class="form-select form-select-lg mb-6" aria-label=".form-select-lg example">
+<select name="category" class="form-select" >
   <option selected>Select Category</option>
     <option>Sports</option>
     <option>Music</option>
@@ -46,18 +42,13 @@
     <option>Others</option>
 </select>
 
-   <label>Age Restriction (optional)</label>
-  <input name="ageRestriction" type="number"  placeholder="Enter a minimum age"  >
+
+  <input class="form-select" name="ageRestriction" type="number"  placeholder="Age Restriction (optional)"  >
  
-  <form action="/upload" method="POST" enctype="multipart/form-data">
-  <input type="file" name="imageUrl" accept="image/png, image/jpg">
-  <button type="submit">Submit</button>  
-</form>
 
-  {{!-- {{<label>Add photo (optional)</label>
-  <input name="photo" type="text"  placeholder="Uplod an event photo"  > --}}
-
+  <div>
   <button type="submit" class="auth-btn">Post your event</button>
+  </div>
 </form>
 
 

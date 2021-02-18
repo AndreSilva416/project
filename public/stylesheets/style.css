@@ -17,6 +17,16 @@ body {
 
 }
 
+.form-select{
+  background: white;
+  height: 40px;
+  width: 90%;
+  border-radius: 8px;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+
 .bg-red{
   background: #eb5758;
   height: 100%;
