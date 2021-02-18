@@ -45,6 +45,7 @@ const EventSchema = new Schema({
 
    eventPic: {
      type: String,
+     default: "https://i.picsum.photos/id/741/536/354.jpg?hmac=JV13P4XHP5tamm2vlyXNFZxns3IyVLT_akGo-VhYPkw"
    },
 
    ageRestriction: Number
