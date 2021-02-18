@@ -12,7 +12,9 @@
             <div>{{details.category}}</div>
             <div>Age Restriction: {{details.ageRestriction}}</div>
 
-<a href="/join/{{details._id}}"><button class="small-btn">Join</button></a>
+<form method="POST" action="/join/{{details._id}}">
+<button type="submit" class="small-btn">Join</button>
+
 {{#if joinedEvent}}
 <h3>Success</h3>
 {{/if}}
