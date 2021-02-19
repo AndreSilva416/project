@@ -35,13 +35,13 @@
 
   </form>
     <div class="events-content">
-      <h1>Looking for <br>an Event?</h1>
+      <h1>Looking for an Event?</h1>
 
 
 
 <div class = "event">
       {{#each events}}  
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 20rem;">
       <img src="{{this.eventPic}}" class="card-img-top" alt="...">
       <div class="card-body">
             <h5 class="card-title">{{this.title}}</h5>
@@ -56,8 +56,7 @@
           {{/if}}
           <a href="/event/{{this._id}}/details"><button class="small-btn">Details</button></a>
       </div>
-  </div>   
-          
+  </div>      
       {{/each}}
 </div>
 </div>

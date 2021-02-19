@@ -88,6 +88,7 @@ body {
   text-align: center;
 }
 
+
 .event-detail{
  /* position: relative;
 left: 50%;
@@ -97,7 +98,7 @@ transition: translate(-50% 50%); */
 
 .bg-green h1{
   color: black;
-  text-align: left;
+  text-align: center;
 }
 
 .bg-dark {
@@ -152,6 +153,9 @@ h3 {
 .event {
   padding: 20px;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .posted-event{
