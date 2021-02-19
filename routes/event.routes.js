@@ -113,11 +113,17 @@ router.get('/event/:id/details', (req, res, next) => {
   let id = req.params.id
 
   EventModel.findById(id)
-      .then((details) => {
+      .then((details) => {  
+        details = details.map((singleDetail) => {
+          let newSingleDetail = JSON.parse(JSON.stringify(singleDetail))
+           let newDate = singleDetail.date.toDateString()
+           newSingleDetail.date = newDate.toString()
+           return newSingleDetail;
+          })
           res.render('event/details.hbs', {details})
       })
       .catch(() => {
-          console.log('Delete failed!')
+          console.log('Something went wrong while finding the detail event!')
       })
 })
 
