@@ -1,32 +1,68 @@
 <h2>Update event</h2>
 <form method="POST" action="/event/{{events._id}}/edit">
 
-  <label>Title</label>
-  <input value = "{{events.title}}" name="title" type="text"  placeholder="Enter the title of your event"  >
-
-  <label>Date</label>
-  <input value = "{{date.title}}" name="date" type="date"  placeholder="Enter the date of your event"  >
-
-  <label>Location</label>
-  <input value = "{{location.title}}" name="location" type="text"  placeholder="Enter location of your event"  >
-
-  <label>Description</label>
-  <input value = "{{description.title}}" name="description" type="text"  placeholder="Enter a description about your event"  >
-
-  {{!-- <label>Category</label>
-  <input name="description" type="text"  placeholder="Enter a description about your event"  > --}}
-
-  <label>Age Restriction (optional)</label>
-  <input value = "{{events.ageRegistration}}" name="ageRestriction" type="number"  placeholder="Enter a minimum age"  >
-
-  {{!-- <label>Add photo (optional)</label>
-  <input name="photo" type="text"  placeholder="Uplod an event photo"  > --}}
+<div class="bg-red"><h1>Update event</h1>
 
 
-  <button type="submit" class="btn btn-primary">Update</button>
+<form method="POST" action="/event/{{events._id}}/edit" class="row g-3" method="POST" action="/event/create">
+
+<div class ="col-md-6">
+  <label for="exampleFormControlInput1" class="form-label">Title</label>
+  <input value = "{{events.title}}" name ="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter the title of your event">
+</div>
+<div class="col-md-6">
+  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+  <textarea value = "{{events.description}}" name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+<div class="col-md-6">
+  <label for="exampleFormControlInput1" class="form-label">Date</label>
+  <input value = "{{events.date}}" name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Enter the date of your event">
+</div>
+
+  <select value = "{{events.location}}" name="location" class="form-select">
+    <option selected>Select City</option>
+    <option>Berlin</option>
+      <option>Porto</option>
+      <option>Paris</option>
+      <option>Amsterdam</option>
+      <option>Lisbon</option>
+      <option>Madrid</option>
+  </select>
+
+
+<select  name="category" value ="{{events.category}}" class="form-select" >
+  <option selected>Select Category</option>
+    <option>Sports</option>
+    <option>Music</option>
+    <option>Garage Sales</option>
+    <option>Meet-Ups</option>
+    <option>Arts and Crafts</option>s
+    <option>Gaming</option>
+    <option>Food</option>
+    <option>Fashion</option>
+    <option>Seminars</option>
+    <option>Themed Parties</option>
+    <option>Others</option>
+</select>
+
+
+  <input value = "{{events.ageRestriction}}" class="form-select" name="ageRestriction" type="number"  placeholder="Age Restriction (optional)"  >
+
 </form>
 
-<form action="/updatePic/{{events._id}}" method="POST" enctype="multipart/form-data">
+ <div>
+  <button type="submit" class="auth-btn">Update</button>
+  </div>
+
+
+<div><h2>Add event picture</h2></div>
+  <form action="/updatePic/{{events._id}}" method="POST" enctype="multipart/form-data">
   <input type="file" name="imageUrl" accept="image/png, image/jpg">
-  <button type="submit">Submit</button> 
+  <button class="auth-btn" type="submit">Submit</button> 
   </form> 
+
+
+</div>
+
+
+

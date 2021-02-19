@@ -24,6 +24,8 @@ router.get('/event/create', checkLoggedInUser,  (req, res, next) => {
 // POST create event
 router.post('/event/create', (req, res, next) => {
   const {title, date, location, description, ageRestriction, category} = req.body
+
+
   let myNewEvent = {
     title,
     date,
@@ -61,9 +63,12 @@ router.get('/event/listing', (req, res, next) => {
   
   EventModel.find(searchQuery)
         .then((events) => {
-          events = events.map(function(singleEvent){
-            singleEvent.showButtons = req.session.loggedInUser?._id == singleEvent.creator
-            return singleEvent;
+          events = events.map((singleEvent) => {
+           let newSingleEvent = JSON.parse(JSON.stringify(singleEvent))
+            newSingleEvent.showButtons = req.session.loggedInUser?._id == singleEvent.creator
+            let newDate = singleEvent.date.toDateString()
+            newSingleEvent.date = newDate.toString()
+            return newSingleEvent;
           })
         res.render('event/events-list.hbs', {events})
         })
@@ -116,7 +121,7 @@ router.get('/event/:id/details', (req, res, next) => {
       })
 })
 
-router.get('/join/:eventId', (req, res, next) => {
+router.post('/join/:eventId', (req, res, next) => {
   //handle delete requests 
   let eventId = req.params.eventId
   let userId = req.session.loggedInUser._id
