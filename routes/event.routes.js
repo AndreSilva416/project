@@ -114,12 +114,12 @@ router.get('/event/:id/details', (req, res, next) => {
 
   EventModel.findById(id)
       .then((details) => {  
-        details = details.map((singleDetail) => {
-          let newSingleDetail = JSON.parse(JSON.stringify(singleDetail))
-           let newDate = singleDetail.date.toDateString()
-           newSingleDetail.date = newDate.toString()
-           return newSingleDetail;
-          })
+        // details = details.map((singleDetail) => {
+        //   let newSingleDetail = JSON.parse(JSON.stringify(singleDetail))
+        //    let newDate = singleDetail.date.toDateString()
+        //    newSingleDetail.date = newDate.toString()
+        //    return newSingleDetail;
+        //   })
           res.render('event/details.hbs', {details})
       })
       .catch(() => {
