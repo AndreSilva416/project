@@ -73,14 +73,15 @@ body {
   text-align: center;
 }
 
-.profile-edit h2{
-color:black;
+.bg-green h2{
+  padding: 20px;
+  color:black;
 }
 
 .events-content{
- display:flex;
-justify-content: center;
-
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
   height: 100%;
   background: #c9fbd2;
   padding: 30px;
