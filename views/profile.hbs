@@ -1,28 +1,39 @@
-<h1>Profile</h1>
+<div class="profile-black"><h1>Profile</h1>
 
 <div class="profile-container">
-
-  <div class="bio-container">
-    <h3>Name: {{user.username}}</h3>
-  </div>
-
-  <img class="profile-pic" src="{{user.profilePic}}" alt="">
+    <h3>Username: {{user.username}}</h3>
+    <h3>eMail: {{user.email}}</h3>
+      <img class="profile-pic" src="{{user.profilePic}}" alt="">
+      <a href="/profile/edit"><button class="auth-btn">edit profile</button></a>
 
 </div>
 
-<button><a href="/profile/edit">EDIT PROFILE</a></button>
+<div class="space">
+<h2>Events you posted</h2>
+</div>
 
-<h1>List of your Event</h1>
+<div class="test">
+  {{#each events}}
 
- {{#each events}}
+    <div class="card" style="width: 25rem;">
+    <img src="{{this.eventPic}}" class="card-img-top" alt="...">
+      <div class="card-body">
+         <h5 class="card-title">{{this.title}}</h5>
+              <p class="card-text">{{this.description}}</p>
+              <div class ="event-title">{{this.date}}</div>
+              <div>{{this.location}}</div>
+              <div>{{this.category}}</div>
+              <div>Age Restriction: {{this.ageRestriction}}</div>
+              {{#if this.showButtons}}
+              <a href="/event/{{this._id}}/edit"><button class="small-btn">Edit</button></a>
+              <a href="/event/{{this._id}}/delete"><button class="small-btn">Delete</button></a>
+            {{/if}}
+            <a href="/event/{{this._id}}/details"><button class="small-btn">Details</button></a>
+     </div>   
+    </div>
   
-      <div>{{this.title}}</div>
-      <div>{{this.description}}</div>
-      <div>{{this.date}}</div>
-      <div>{{this.location}}</div>
-      <div>{{this.category}}</div>
-      <div>{{this.ageRestriction}}</div>
-        <a href="/event/{{this._id}}/edit"><button>Edit</button></a>
-      <a href="/event/{{this._id}}/delete"><button>Delete</button></a>
+  {{/each}}
+</div>
 
- {{/each}}
+
+</div>

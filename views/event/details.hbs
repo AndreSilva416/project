@@ -1,20 +1,22 @@
-<h1>Details</h1>
 
-<img class="profile-pic" src="{{details.eventPic}}" alt="">
+<img class="event-pic" src="{{details.eventPic}}" alt="">
 
-
- <div class ="event-title">{{details.title}}</div>
+<div class="event-detail">
+ <div class ="event-title"><h1>{{details.title}}</h1></div>
             <div>{{details.description}}</div>
             <div class ="event-title">When?</div>
             <div>{{details.date}}</div>
-            <div class ="event-title">When?</div>
+            <div class ="event-title">Where?</div>
             <div>{{details.location}}</div>
+            <div class ="event-title">Category:</div>
             <div>{{details.category}}</div>
             <div>Age Restriction: {{details.ageRestriction}}</div>
 
 <form method="POST" action="/join/{{details._id}}">
-<button type="submit" class="small-btn">Join</button>
+<button type="submit" class="auth-btn">Join</button>
+</div>
 
 {{#if joinedEvent}}
-<h3>Success</h3>
+<div class="success-msg"><h3>Yaay! You successfully joined this event.</h3></div>
 {{/if}}
+
