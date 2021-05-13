@@ -136,15 +136,11 @@ Search or post an event in your area.
 <br>
 
 ## Links
-[Trello Link]
 
+
+### Deploy Link
+https://eventlis-reloaded.herokuapp.com/
 
 ### Git
-[Repository Link]
 
-[Deploy Link]
-
-<br>
-
-### Slides
-[Google Slides Link]
+https://github.com/AndreSilva416/project

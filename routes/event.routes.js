@@ -73,7 +73,7 @@ router.get('/event/listing', (req, res, next) => {
         res.render('event/events-list.hbs', {events})
         })
         .catch((err) => {
-            console.log(err, 'Something went wrong while finding')
+            console.log(err, 'Something went wrong while finding the events')
         })
 });
 
